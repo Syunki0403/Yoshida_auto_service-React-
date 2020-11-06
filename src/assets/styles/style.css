@@ -1,0 +1,3138 @@
+/*-------------------------------
+
+	共通
+
+-------------------------------*/
+body {
+    position: relative;
+    font-weight: 700;
+    font-size: 3.5vw;
+    font-family: "Yu Gothic", YuGothic, "Noto Sans Japanese", "Helvetica Neue", "ヒラギノ角ゴ ProN W3",
+        "Hiragino Kaku Gothic ProN", Arial, Meiryo, sans-serif;
+    background-image: url("../img/bg_paper.png");
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/*---------- READ MORE ----------*/
+.more {
+    text-align: right;
+}
+
+.more span {
+    display: inline-block;
+    position: relative;
+    padding-left: 40px;
+    transition: all 0.3s linear;
+    color: #ea5514;
+}
+
+.more span::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 15px;
+    border-top: 1.5px solid #ea5514;
+    top: 48%;
+    left: 0;
+}
+
+.more span::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-bottom: 1.2px solid #ea5514;
+    border-right: 1.2px solid #ea5514;
+    transform: rotate(-45deg);
+    top: 0;
+    left: 15px;
+    bottom: 0;
+    margin: auto;
+}
+
+/*---------- 黒枠ボタン ----------*/
+.nextbtn a {
+    position: relative;
+    padding: 5px 60px;
+    display: inline-block;
+    border: 1px solid #000;
+    overflow: hidden;
+}
+
+.nextbtn a::before {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-color: #ea5514;
+    position: absolute;
+    top: 0;
+    left: -100%;
+    -webkit-transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.nextbtn a span {
+    display: inline-block;
+    padding-right: 40px;
+    position: relative;
+    vertical-align: baseline;
+    font-size: 3.5vw;
+    -webkit-transition: all 0.4s linear;
+    transition: all 0.4s linear;
+}
+
+.nextbtn a span::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    width: 15px;
+    border-top: 1px solid #000;
+    top: 50%;
+    right: 10px;
+}
+
+.nextbtn a span::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    width: 7px;
+    height: 7px;
+    border-bottom: 1px solid #000;
+    border-right: 1px solid #000;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.nextbtn a:hover {
+    color: #fff;
+    border-color: #ea5514;
+    -webkit-transition: border 0.9s cubic-bezier(0.65, 0.05, 0.36, 1);
+    transition: border 0.9s cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+
+.nextbtn a:hover span {
+    -webkit-transform: translate(6px);
+    transform: translate(6px);
+}
+
+.nextbtn a:hover span::before {
+    border-color: #fff;
+}
+
+.nextbtn a:hover span::after {
+    border-color: #fff;
+}
+
+.nextbtn a:hover::before {
+    left: 0;
+}
+
+/*---------- BACKボタン ----------*/
+.backbtn img {
+    width: 100%;
+    display: block;
+}
+
+/*---------- トップページ ----------*/
+.top_contents {
+    position: relative;
+    border-top: 3px solid #ea5514;
+    overflow: hidden;
+}
+
+.contentsWrap {
+    position: absolute;
+    top: 0;
+    left: -5%;
+    height: 100%;
+}
+
+.contentsWrap img {
+    width: 115%;
+    height: 100%;
+}
+
+.fadeUp {
+    animation: fadeUp 0.7s ease-in forwards;
+}
+
+@keyframes fadeUp {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-2000px);
+    }
+}
+
+/*---------- コンテンツページ ----------*/
+.contents_section {
+    position: relative;
+    border-top: 6px solid #ea5514;
+}
+
+.contents_section_box {
+    padding: 0 7vw;
+}
+
+.contents_section .title img {
+    display: block;
+    width: 100%;
+}
+
+/*---------- メニュー ----------*/
+.menu.hide {
+    visibility: hidden;
+}
+
+.menu_btn {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #ea5514;
+    z-index: 10;
+}
+
+.menu_btn_box {
+    position: relative;
+    width: 40px;
+    height: 100%;
+    margin: auto;
+}
+
+.menu_btn_line {
+    background-color: white;
+    display: block;
+    width: 40px;
+    height: 4px;
+    position: absolute;
+    transition: transform 0.3s;
+}
+
+.menu_btn .btnline-top {
+    top: 30%;
+}
+
+.menu_btn .btnline-center {
+    top: 50%;
+}
+
+.menu_btn .btnline-bottom {
+    top: 70%;
+}
+
+.menu.active .btnline-top {
+    top: 50%;
+    transform: rotate(45deg);
+}
+
+.menu.active .btnline-center {
+    opacity: 0;
+}
+
+.menu.active .btnline-bottom {
+    top: 50%;
+    transform: rotate(-45deg);
+}
+
+.menu.active .menu_btn {
+    background-color: gray;
+}
+
+.menu_nav {
+    background-color: gray;
+    display: none;
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    z-index: 9;
+}
+
+.menu.active .menu_nav {
+    display: block;
+}
+
+.menu_nav_logo {
+    text-align: center;
+    margin: 10vh 0 2vh;
+}
+
+.menu_nav_logo img {
+    width: 60%;
+}
+
+.menu_nav_policy {
+    margin-top: 3vh;
+    text-align: center;
+}
+
+.menu_nav_policy a {
+    display: inline-block;
+    color: white;
+    font-size: 13px;
+}
+
+.menu_nav_list {
+    text-align: center;
+}
+
+.menu_nav_list li:not(:first-child) img {
+    width: 25vw;
+}
+
+.menu_nav_list li:first-child img {
+    width: 20vw;
+}
+
+.menu_nav_list li {
+    margin-bottom: 4vh;
+}
+
+.menu_nav_sns {
+    padding: 0 30vw;
+    display: flex;
+    justify-content: space-around;
+}
+
+.menu_nav_sns .sns_instagram a {
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-image: url("../img/top/instagram.svg");
+}
+
+.menu_nav_sns .sns_facebook a {
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-image: url("../img//top/facebook.svg");
+}
+
+/*---------- フッター ----------*/
+footer {
+    height: 620px;
+    color: #fff;
+    background-color: gray;
+    position: relative;
+}
+
+.footer_logo {
+    text-align: center;
+    padding-top: 50px;
+}
+
+.footer_logo img {
+    width: 60%;
+}
+
+.footer_nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 18vw;
+    margin: 30px 0 30px;
+}
+
+.footer_nav li {
+    width: 40%;
+    margin-bottom: 18px;
+}
+
+.footer_nav a {
+    display: block;
+    width: 100%;
+}
+
+.footer_nav img {
+    width: 100%;
+    display: block;
+}
+
+.footer_nav li:nth-child(1) img {
+    width: 80%;
+}
+
+.footer_sns {
+    padding: 0 30vw;
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer_sns .sns_instagram a {
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-image: url("../img/top/instagram.svg");
+}
+
+.footer_sns .sns_facebook a {
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-image: url("../img//top/facebook.svg");
+}
+
+.footer_policy {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.footer_policy a {
+    display: inline-block;
+    font-size: 12px;
+    color: white;
+}
+
+.footer_copyright {
+    text-align: center;
+    font-size: 11px;
+    margin-top: 10px;
+}
+
+.footer_movetop {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.footer_movetop a {
+    display: block;
+    width: 90px;
+    height: 55px;
+    background-color: white;
+    position: relative;
+}
+
+.footer_movetop a div {
+    position: absolute;
+    top: 45%;
+    left: 42%;
+    transform: translate(-50%, -50%);
+    border-top: solid 4px gray;
+    border-left: solid 4px gray;
+    width: 15px;
+    height: 15px;
+    transform: rotate(45deg);
+}
+
+/*-------------------------------
+
+	トップページ
+
+-------------------------------*/
+
+/*---------- 社員画像 ----------*/
+.heroBox_imageArea {
+    position: relative;
+    height: 730px;
+}
+
+.heroBox_arrowArea {
+    text-align: center;
+    padding: 30px 0;
+}
+
+.heroImgBox {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.heroImgBox .heroImg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    background-position: center;
+    background-size: cover;
+    animation: bgAnime 16s infinite; /* 4画像 × 各4s = 16s */
+}
+
+.heroImgBox .src1 {
+    background-image: url("../img/top/bg_hero01.jpg");
+}
+.heroImgBox .src2 {
+    background-image: url("../img/top/bg_hero02.jpg"); /* 背景の画像を指定 */
+    animation-delay: 4s;
+}
+.heroImgBox .src3 {
+    background-image: url("../img/top/bg_hero03.jpg"); /* 背景の画像を指定 */
+    animation-delay: 8s;
+}
+.heroImgBox .src4 {
+    background-image: url("../img/top/bg_hero04.jpg"); /* 背景の画像を指定 */
+    animation-delay: 12s;
+}
+
+@keyframes bgAnime {
+    0% {
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 1;
+    }
+    30% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.heroBox_YAS {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%;
+}
+
+.heroBox_YAS img {
+    width: 100%;
+}
+
+.heroBox_logo {
+    position: absolute;
+    bottom: 0;
+    right: 5%;
+    width: 20%;
+}
+
+.heroBox_logo img {
+    display: block;
+    width: 100%;
+}
+
+.arrow-bottom {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin: 0 10px;
+    border-bottom: 3px solid #000;
+    border-right: 3px solid #000;
+    transform: rotate(45deg);
+}
+
+/*---------- 新着情報 ----------*/
+.top_news {
+    height: 850px;
+    padding-top: 20px;
+}
+
+.top_news .title {
+    text-align: center;
+    width: 100%;
+}
+
+.top_news .title img {
+    width: 40%;
+}
+
+.top_news .articleBox {
+    padding: 0 7vw;
+    margin-top: 10px;
+}
+
+.top_news article {
+    border-bottom: 1px dotted black;
+    padding: 10px 0;
+}
+
+.top_news article:last-child {
+    border-bottom: none;
+}
+
+.top_news dt {
+    display: inline;
+    background-color: #ea5514;
+    color: white;
+    padding: 2px 5px;
+}
+
+.top_news dd {
+    margin: 8px 0 5px;
+}
+
+.top_news .line-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.top_news a:hover span {
+    transform: translate(6px);
+}
+
+.top_news .nextbtnArea {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.top_news .photo {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80%;
+}
+
+.top_news .photo img {
+    display: block;
+    width: 100%;
+    filter: sepia(50%);
+}
+
+.top_news .newsLogo {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 45%;
+}
+
+.top_news .newsLogo img {
+    display: block;
+    width: 100%;
+}
+
+/*---------- 代表挨拶 ----------*/
+.top_greeting {
+    height: 850px;
+}
+
+.top_greeting::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(234, 85, 20, 0.1);
+    width: 50%;
+    height: 90%;
+    z-index: -1;
+}
+
+.top_greeting .president {
+    width: 90%;
+}
+
+.top_greeting .president img {
+    width: 100%;
+}
+
+.top_greeting_box {
+    padding: 0 7vw;
+}
+
+.top_greeting .title {
+    text-align: left;
+    width: 100%;
+    margin: 40px 0 20px;
+}
+
+.top_greeting .title img {
+    width: 50%;
+}
+
+.top_greeting .text {
+    line-height: 1.9em;
+    margin-bottom: 30px;
+}
+
+.top_greeting .nextbtnArea {
+    text-align: center;
+}
+
+.top_greeting .greetingLogo {
+    position: absolute;
+    bottom: -14px;
+    left: 0;
+    width: 65%;
+}
+
+.top_greeting .greetingLogo img {
+    display: block;
+    width: 100%;
+}
+
+/*---------- 企業情報 ----------*/
+.top_outline {
+    height: 850px;
+}
+
+.top_outline::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: rgba(234, 85, 20, 0.1);
+    width: 80%;
+    height: 35%;
+    z-index: -1;
+}
+
+.top_outline .title {
+    text-align: center;
+    width: 100%;
+    margin: 40px 0 20px;
+}
+
+.top_outline .title img {
+    width: 40%;
+}
+
+.top_outline table {
+    padding: 0 7vw;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.top_outline td {
+    padding: 0 0 7px 10px;
+}
+
+.top_outline th {
+    vertical-align: top;
+}
+
+.top_outline .nextbtnArea {
+    text-align: center;
+}
+
+.top_outline .photo {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 65%;
+}
+
+.top_outline .photo img {
+    display: block;
+    width: 100%;
+    filter: sepia(50%);
+}
+
+.top_outline .outlineLogo {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 65%;
+}
+
+.top_outline .outlineLogo img {
+    display: block;
+    width: 100%;
+}
+
+/*---------- 事業紹介 ----------*/
+.top_branding {
+    height: 1050px;
+}
+
+.top_branding::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: rgba(234, 85, 20, 0.1);
+    width: 80%;
+    height: 90%;
+    z-index: -1;
+}
+
+.top_branding .photo {
+    width: 90%;
+    margin-left: auto;
+}
+
+.top_branding .photo img {
+    width: 100%;
+    filter: sepia(50%);
+}
+
+.top_branding_box {
+    padding: 0 7vw;
+}
+
+.top_branding .title {
+    width: 100%;
+    margin: 60px 0 30px;
+}
+
+.top_branding .title img {
+    width: 50%;
+}
+
+.top_branding .branding_list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.top_branding .branding_list li {
+    width: 45%;
+    margin-bottom: 14px;
+}
+
+.top_branding .branding_list p {
+    margin-bottom: 2px;
+}
+
+.top_branding .branding_list img {
+    width: 100%;
+}
+
+.top_branding .branding_list li:nth-child(2) img {
+    width: 80%;
+}
+
+.top_branding .branding_list li:nth-child(6) img {
+    width: 55%;
+}
+
+.top_branding .branding_list li:nth-child(7) img {
+    width: 80%;
+}
+
+.top_branding .branding_list li:nth-child(9) img {
+    width: 80%;
+}
+
+.top_branding .brandingLogo {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 80%;
+}
+
+.top_branding .brandingLogo img {
+    display: block;
+    width: 100%;
+}
+
+/*---------- 採用情報 ----------*/
+.top_recruit {
+    height: 850px;
+}
+
+.top_recruit::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: rgba(234, 85, 20, 0.1);
+    width: 80%;
+    height: 95%;
+    z-index: -1;
+}
+
+.top_recruit .photo {
+    width: 85%;
+    margin-left: auto;
+}
+
+.top_recruit .photo img {
+    width: 100%;
+    filter: sepia(50%);
+}
+
+.top_recruit_box {
+    padding: 0 7vw;
+}
+
+.top_recruit .title {
+    width: 100%;
+    margin: 30px 0 10px;
+}
+
+.top_recruit .title img {
+    width: 50%;
+}
+
+.top_recruit .workList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 92%;
+    margin: 10px auto 20px;
+}
+
+.top_recruit .workList li {
+    width: 32%;
+    margin-bottom: 6px;
+}
+
+.top_recruit .workList img {
+    width: 100%;
+}
+
+.top_recruit .nextbtnArea {
+    text-align: center;
+}
+
+.top_recruit .recruitLogo {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 70%;
+}
+
+.top_recruit .recruitLogo img {
+    display: block;
+    width: 100%;
+}
+
+/*-------------------------------
+
+	新着情報ページ
+
+-------------------------------*/
+.section_news .title {
+    margin-top: 100px;
+}
+
+.section_news_list li {
+    border-bottom: dotted 1px black;
+    margin-top: 50px;
+    padding-bottom: 40px;
+}
+
+.section_news_list img {
+    width: 100%;
+}
+
+.section_news_list .list_title {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 1.3em;
+    margin: 2px 0 7px;
+}
+
+.section_news_list .list_text {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.section_news .backbtn {
+    margin: 170px 0 0;
+    padding-bottom: 140px;
+}
+
+.section_news .contentsLogo {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 60%;
+}
+
+.section_news .contentsLogo img {
+    display: block;
+    width: 100%;
+}
+
+/*-------------------------------
+
+	代表挨拶ページ
+
+-------------------------------*/
+.section_greeting .contentsLogo-greeting {
+    position: absolute;
+    top: -8px;
+    left: 0;
+    width: 90%;
+}
+
+.section_greeting .contentsLogo-greeting img {
+    width: 100%;
+}
+
+.section_greeting-box {
+    padding: 0 7vw;
+}
+
+.section_greeting-box .title {
+    width: 100%;
+}
+
+/*---------- 代表挨拶 ----------*/
+.section_greeting_greeting {
+    margin-top: 130px;
+}
+
+.section_greeting_greeting .president {
+    width: 90%;
+    margin: 20px auto;
+}
+
+.section_greeting_greeting .president img {
+    width: 100%;
+    filter: sepia(50%);
+}
+
+.section_greeting_greeting h5 {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+.section_greeting_greeting .name {
+    margin-top: 16px;
+}
+
+.section_greeting_greeting .roman {
+    margin-left: 8px;
+    font-size: 0.7em;
+}
+
+/*---------- メンバー ----------*/
+.section_greeting .menber-box {
+    position: relative;
+    height: 290px;
+    margin-top: 40px;
+}
+
+.section_greeting .menber-box::before {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    right: 0;
+    background: rgba(234, 85, 20, 0.1);
+    width: 80%;
+    height: 95%;
+    z-index: -1;
+}
+
+.section_greeting .menber-box img {
+    width: 100%;
+}
+
+.section_greeting .menber-box .menber01 {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 25%;
+}
+
+.section_greeting .menber-box .menber02 {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    z-index: 1;
+}
+
+.section_greeting .menber-box .menber03 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30%;
+}
+
+/*---------- 企業理念 ----------*/
+.section_greeting_philosophy {
+    margin-bottom: 40px;
+}
+
+.section_greeting_philosophy p {
+    margin-top: 20px;
+}
+
+/*---------- 企業方針 ----------*/
+.section_greeting_policy {
+    margin-bottom: 40px;
+}
+
+.section_greeting_policy p {
+    margin-top: 20px;
+}
+
+/*---------- ビジョン ----------*/
+.section_greeting_vision {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.section_greeting_vision::before {
+    content: "";
+    position: absolute;
+    top: -80px;
+    right: 0;
+    background: rgba(234, 85, 20, 0.1);
+    width: 65%;
+    height: 180%;
+    z-index: -1;
+}
+
+.section_greeting_vision p {
+    margin-top: 20px;
+}
+
+/*---------- 戻るボタン ----------*/
+.section_greeting .backbtn {
+    margin: 60px 7vw 0;
+    padding-bottom: 100px;
+}
+
+.section_greeting .contentsLogo-philosophy {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 90%;
+}
+
+.section_greeting .contentsLogo-philosophy img {
+    width: 100%;
+    display: block;
+}
+
+/*-------------------------------
+
+	企業情報ページ
+
+-------------------------------*/
+.section_outline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: rgba(234, 85, 20, 0.1);
+    width: 40%;
+    height: 150px;
+    z-index: -1;
+}
+
+.section_outline .contentsLogo-outline {
+    position: absolute;
+    top: -5px;
+    left: 0;
+    width: 80%;
+}
+
+.section_outline .contentsLogo-outline img {
+    width: 100%;
+}
+
+/*---------- モーダル ----------*/
+.section_outline .modal {
+    position: relative;
+    margin: 100px 10vw 40px;
+}
+
+.section_outline .modal_parent {
+    background-color: #ea5514;
+}
+
+.section_outline .modal_parent .logo {
+    width: 40%;
+    margin: auto;
+    padding-top: 15px;
+}
+
+.section_outline .modal_parent .logo img {
+    width: 100%;
+}
+
+.section_outline .openBtn {
+    text-align: center;
+    padding: 5px 0 8px;
+}
+
+.section_outline .openBtn a::before {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: -100%;
+    -webkit-transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.section_outline .openBtn a {
+    position: relative;
+    padding: 5px 60px;
+    display: inline-block;
+    border: 1px solid white;
+    overflow: hidden;
+}
+
+.section_outline .openBtn span {
+    color: white;
+    display: inline-block;
+    position: relative;
+    vertical-align: baseline;
+    font-size: 3.5vw;
+    -webkit-transition: all 0.4s linear;
+    transition: all 0.4s linear;
+}
+
+.section_outline .openBtn a:hover {
+    border-color: white;
+    -webkit-transition: border 0.9s cubic-bezier(0.65, 0.05, 0.36, 1);
+    transition: border 0.9s cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+
+.section_outline .openBtn a:hover span {
+    -webkit-transform: translate(6px);
+    transform: translate(6px);
+    color: #ea5514;
+}
+
+.section_outline .openBtn a:hover::before {
+    left: 0;
+}
+
+.section_outline .modal_child {
+    display: none;
+    position: absolute;
+    top: 5vh;
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+.section_outline .modal_child.show {
+    display: block;
+}
+
+.section_outline .modal_child .title {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.section_outline .modal_child .title {
+    margin: 30px auto 0;
+    text-align: center;
+    width: 60%;
+}
+
+.section_outline .modal_child .title img {
+    width: 100%;
+}
+
+.section_outline .modal_child .closeBtn {
+    width: 8%;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.section_outline .modal_child .closeBtn img {
+    width: 100%;
+}
+
+.section_outline .modal_child .logo {
+    text-align: center;
+    margin: 40px 0 30px;
+    width: 100%;
+}
+
+.section_outline .modal_child .logo img {
+    width: 60%;
+}
+
+.section_outline .modal_child .text {
+    margin: 0 10vw;
+    color: #ea5514;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.section_outline .modal_child .text:last-child {
+    margin-bottom: 30px;
+}
+
+/*---------- 企業情報 ----------*/
+.section_outline_corporate {
+    padding: 0 7vw;
+    margin-bottom: 60px;
+}
+
+.section_outline_corporate .title {
+    margin-bottom: 20px;
+}
+
+.section_outline_corporate th {
+    width: 28%;
+    text-align: left;
+    padding-bottom: 5px;
+    vertical-align: top;
+}
+
+.section_outline_corporate td {
+    padding-bottom: 5px;
+}
+
+.section_outline_corporate table a {
+    text-decoration: underline;
+}
+
+.section_outline_corporate .table-blank th,
+.section_outline_corporate .table-blank td {
+    padding-top: 13px;
+}
+
+.section_outline_corporate .table-blank div {
+    margin-bottom: 13px;
+}
+
+.section_outline_corporate .movie {
+    margin: 30px 0 0;
+}
+
+/*---------- 沿革 ----------*/
+.section_outline_history {
+    padding: 0 7vw;
+    margin-bottom: 60px;
+}
+
+.section_outline_history .title {
+    margin-bottom: 20px;
+}
+
+.section_outline_history .text {
+    margin: 20px 0 30px;
+}
+
+.section_outline_history table {
+    padding-bottom: 13px;
+}
+
+.section_outline_history th {
+    font-size: 4vw;
+    vertical-align: top;
+    position: relative;
+    color: #ea5514;
+    top: -2px;
+}
+
+.section_outline_history th::after {
+    content: "";
+    width: 5px;
+    margin: 0 auto;
+    background-color: black;
+    position: absolute;
+    top: 5.9vw;
+    left: 53%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.section_outline_history td {
+    font-size: 3.5vw;
+    vertical-align: top;
+    padding-bottom: 3px;
+}
+
+.section_outline_history .table-month {
+    width: 10vw;
+    text-align: right;
+}
+
+.section_outline_history .table-sub {
+    padding-left: 1vw;
+}
+
+.section_outline_history .table1 th::after {
+    height: 21vw;
+}
+
+.section_outline_history .table2 th::after {
+    height: 4vw;
+}
+
+.section_outline_history .table3 th::after {
+    height: 9vw;
+}
+
+.section_outline_history .table4 th::after {
+    height: 15vw;
+}
+
+.section_outline_history .table5 th::after {
+    height: 15vw;
+}
+
+.section_outline_history .table6 th::after {
+    height: 9vw;
+}
+
+.section_outline_history .table7 th::after {
+    height: 9vw;
+}
+
+.section_outline_history .table8 th::after {
+    height: 9vw;
+}
+
+.section_outline_history .table9 th::after {
+    height: 26vw;
+}
+
+.section_outline_history .table10 th::after {
+    height: 36vw;
+}
+
+/*---------- 組織図 ----------*/
+.section_outline_organization {
+    position: relative;
+    padding: 0 7vw;
+}
+
+.section_outline_organization::before {
+    content: "";
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    background: rgba(234, 85, 20, 0.1);
+    width: 100%;
+    height: 70%;
+    z-index: -1;
+}
+
+.section_outline_organization .chart {
+    margin-top: 50px;
+}
+
+.section_outline_organization .chart img {
+    width: 100%;
+}
+
+/*---------- 戻るボタン ----------*/
+.section_outline .backbtn {
+    margin: 60px 7vw 0;
+    padding-bottom: 100px;
+}
+
+.contentsLogo-history {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 90%;
+}
+
+.contentsLogo-history img {
+    display: block;
+    width: 100%;
+}
+
+/*-------------------------------
+
+	事業紹介ページ
+
+-------------------------------*/
+.section_branding .contentsLogo-branding {
+    position: absolute;
+    top: -5px;
+    left: 0;
+    width: 95%;
+}
+
+.section_branding .contentsLogo-branding img {
+    width: 100%;
+}
+
+.section_branding .backbtn {
+    margin: 100px 7vw 0;
+    padding-bottom: 100px;
+}
+
+.section_branding .contentsLogo-service {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 85%;
+}
+
+.section_branding .contentsLogo-service img {
+    display: block;
+    width: 100%;
+}
+
+/*---------- 事業紹介 ----------*/
+.section_branding_service {
+    padding: 0 7vw;
+    margin-top: 140px;
+}
+
+.section_branding_service .text {
+    margin-top: 20px;
+}
+
+.section_branding_service .service_list {
+    margin-top: 70px;
+}
+
+.section_branding_service .service_list li {
+    margin-bottom: 10vh;
+}
+
+.section_branding_service .service_list .list_link {
+    position: relative;
+    padding: 10% 7% 7%;
+    border-bottom: 2px solid #ea5514;
+    display: block;
+}
+
+.section_branding_service .service_list .list_link::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-top: 2px solid #ea5514;
+    border-left: 2px solid #ea5514;
+    width: 4vw;
+    height: 100%;
+}
+
+.section_branding_service .service_list .list_link::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-top: 2px solid #ea5514;
+    border-right: 2px solid #ea5514;
+    width: 38vw;
+    height: 100%;
+}
+
+.section_branding_service .service_list .list_title {
+    position: absolute;
+    top: -20px;
+    left: 10vw;
+}
+
+.section_branding_service .service_list .list_title img {
+    width: 55%;
+}
+
+.section_branding_service .service_list .list_picture {
+    width: 86%;
+    margin: 0 auto;
+}
+
+.section_branding_service .service_list .list_picture img {
+    width: 100%;
+}
+
+.section_branding_service .service_list .list_text {
+    margin-top: 10px;
+    font-size: 0.82em;
+}
+
+.section_branding_service li:nth-child(2) .list_link::after {
+    width: 44vw;
+}
+
+.section_branding_service li:nth-child(3) .list_link::after {
+    width: 32vw;
+}
+
+.section_branding_service li:nth-child(4) .list_link::after {
+    width: 35vw;
+}
+
+.section_branding_service li:nth-child(5) .list_link::after {
+    width: 35vw;
+}
+
+.section_branding_service li:nth-child(6) .list_link::after {
+    width: 43vw;
+}
+
+.section_branding_service li:nth-child(6) .list_title {
+    top: -30px;
+    left: 10vw;
+}
+
+.section_branding_service li:nth-child(6) .list_title img {
+    width: 75%;
+}
+
+.section_branding_service li:nth-child(7) .list_link::after {
+    width: 38vw;
+}
+
+.section_branding_service li:nth-child(7) .list_title {
+    top: -20px;
+    left: 8vw;
+    width: 40%;
+}
+
+.section_branding_service li:nth-child(7) .list_title img {
+    width: 100%;
+}
+
+.section_branding_service li:nth-child(8) .list_title {
+    top: -10px;
+    left: 7vw;
+    width: 45%;
+}
+
+.section_branding_service li:nth-child(8) .list_title img {
+    width: 100%;
+}
+
+.section_branding_service li:nth-child(9) .list_title {
+    top: -20px;
+    left: 10vw;
+    width: 35%;
+}
+
+.section_branding_service li:nth-child(9) .list_title img {
+    width: 100%;
+}
+
+/*---------- 事業ドメイン ----------*/
+.section_branding_domain .title {
+    padding: 0 7vw;
+}
+
+.section_branding_domain .text {
+    padding: 0 7vw;
+    margin-top: 20px;
+}
+
+.section_branding_domain .domain_contents {
+    position: relative;
+    margin: 20px 0 60px;
+    width: 100%;
+}
+
+.section_branding_domain .domain_bgcolor {
+    position: absolute;
+    top: 90px;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border: 15px solid rgba(234, 85, 20, 0.1);
+    width: 68vw;
+    height: 90px;
+    z-index: -1;
+}
+
+.section_branding_domain .domain_list {
+    width: 92%;
+    margin: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.section_branding_domain .circul {
+    position: relative;
+    display: inline-block;
+    width: 20vw;
+    height: 20vw;
+    border-radius: 50%;
+    border: 1px solid #000;
+    background-color: #f8ebd5;
+}
+
+.section_branding_domain .domain_list span {
+    font-size: 0.85em;
+    position: absolute;
+    display: inline-block;
+    left: 0;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    text-align: center;
+    width: 100%;
+}
+
+.section_branding_domain .domain_list:nth-child(1) {
+    margin-bottom: 30px;
+}
+
+/*---------- 拠点紹介 ----------*/
+.section_branding_shops {
+    padding: 0 7vw;
+}
+
+.section_branding_shops .text {
+    margin-top: 20px;
+}
+
+.section_branding_shops .shops_list {
+    margin-top: 30px;
+}
+
+.section_branding_shops .shops_contents {
+    border-bottom: 1px dotted black;
+}
+
+.section_branding_shops .shops_contents_text {
+    display: block;
+    position: relative;
+    font-size: 6vw;
+    padding: 2vw 0 2vw 5vw;
+    font-weight: 400;
+}
+
+.section_branding_shops .shops_contents_text::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    border-bottom: 0.9px solid black;
+    border-right: 0.9px solid black;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    top: 0;
+    right: 5vw;
+    bottom: 0;
+    margin: auto;
+}
+
+.section_branding_shops .shops_contents_text:hover {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgNDY5IDUzIj48ZGVmcz48c3R5bGU+LmNscy0xLC5jbHMtM3tmaWxsOm5vbmU7fS5jbHMtMntjbGlwLXBhdGg6dXJsKCNjbGlwLXBhdGgpO30uY2xzLTN7c3Ryb2tlOiNlYTU1MTQ7c3Ryb2tlLW1pdGVybGltaXQ6MTA7c3Ryb2tlLXdpZHRoOjAuNzVweDt9PC9zdHlsZT48Y2xpcFBhdGggaWQ9ImNsaXAtcGF0aCI+PHJlY3QgY2xhc3M9ImNscy0xIiB4PSIwLjMxIiB5PSIwLjM2IiB3aWR0aD0iNDY4LjM5IiBoZWlnaHQ9IjUyLjI4Ii8+PC9jbGlwUGF0aD48L2RlZnM+PHRpdGxlPuOCouODvOODiOODnOODvOODiSA0NjwvdGl0bGU+PGcgaWQ9ImxldHRlciI+PHJlY3QgY2xhc3M9ImNscy0xIiB3aWR0aD0iNDY5IiBoZWlnaHQ9IjUzIi8+PGcgY2xhc3M9ImNscy0yIj48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSIzLjA4IiB5MT0iLTkuNDgiIHgyPSItNzEuMjgiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjEyLjQ3IiB5MT0iLTkuNDgiIHgyPSItNjEuODkiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjIxLjg2IiB5MT0iLTkuNDgiIHgyPSItNTIuNTEiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjMxLjI0IiB5MT0iLTkuNDgiIHgyPSItNDMuMTIiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjQwLjYzIiB5MT0iLTkuNDgiIHgyPSItMzMuNzMiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjUwLjAyIiB5MT0iLTkuNDgiIHgyPSItMjQuMzQiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjU5LjQxIiB5MT0iLTkuNDgiIHgyPSItMTQuOTUiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjY4Ljc5IiB5MT0iLTkuNDgiIHgyPSItNS41NyIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iNzguMTgiIHkxPSItOS40OCIgeDI9IjMuODIiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9Ijg3LjU3IiB5MT0iLTkuNDgiIHgyPSIxMy4yMSIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iOTYuOTYiIHkxPSItOS40OCIgeDI9IjIyLjYiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjEwNi4zNCIgeTE9Ii05LjQ4IiB4Mj0iMzEuOTgiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjExNS43MyIgeTE9Ii05LjQ4IiB4Mj0iNDEuMzciIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjEyNS4xMiIgeTE9Ii05LjQ4IiB4Mj0iNTAuNzYiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjEzNC41MSIgeTE9Ii05LjQ4IiB4Mj0iNjAuMTUiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjE0My44OSIgeTE9Ii05LjQ4IiB4Mj0iNjkuNTMiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjE1My4yOCIgeTE9Ii05LjQ4IiB4Mj0iNzguOTIiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjE2Mi42NyIgeTE9Ii05LjQ4IiB4Mj0iODguMzEiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjE3Mi4wNiIgeTE9Ii05LjQ4IiB4Mj0iOTcuNyIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iMTgxLjQ0IiB5MT0iLTkuNDgiIHgyPSIxMDcuMDgiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjE5MC44MyIgeTE9Ii05LjQ4IiB4Mj0iMTE2LjQ3IiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSIyMDAuMjIiIHkxPSItOS40OCIgeDI9IjEyNS44NiIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iMjA5LjYxIiB5MT0iLTkuNDgiIHgyPSIxMzUuMjUiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjIxOSIgeTE9Ii05LjQ4IiB4Mj0iMTQ0LjYzIiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSIyMjguMzgiIHkxPSItOS40OCIgeDI9IjE1NC4wMiIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iMjM3Ljc3IiB5MT0iLTkuNDgiIHgyPSIxNjMuNDEiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjI0Ny4xNiIgeTE9Ii05LjQ4IiB4Mj0iMTcyLjgiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjI1Ni41NSIgeTE9Ii05LjQ4IiB4Mj0iMTgyLjE4IiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSIyNjUuOTMiIHkxPSItOS40OCIgeDI9IjE5MS41NyIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iMjc1LjMyIiB5MT0iLTkuNDgiIHgyPSIyMDAuOTYiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjI4NC43MSIgeTE9Ii05LjQ4IiB4Mj0iMjEwLjM1IiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSIyOTQuMSIgeTE9Ii05LjQ4IiB4Mj0iMjE5LjczIiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSIzMDMuNDgiIHkxPSItOS40OCIgeDI9IjIyOS4xMiIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iMzEyLjg3IiB5MT0iLTkuNDgiIHgyPSIyMzguNTEiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjMyMi4yNiIgeTE9Ii05LjQ4IiB4Mj0iMjQ3LjkiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjMzMS42NSIgeTE9Ii05LjQ4IiB4Mj0iMjU3LjI4IiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSIzNDEuMDMiIHkxPSItOS40OCIgeDI9IjI2Ni42NyIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iMzUwLjQyIiB5MT0iLTkuNDgiIHgyPSIyNzYuMDYiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjM1OS44MSIgeTE9Ii05LjQ4IiB4Mj0iMjg1LjQ1IiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSIzNjkuMiIgeTE9Ii05LjQ4IiB4Mj0iMjk0Ljg0IiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSIzNzguNTgiIHkxPSItOS40OCIgeDI9IjMwNC4yMiIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iMzg3Ljk3IiB5MT0iLTkuNDgiIHgyPSIzMTMuNjEiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjM5Ny4zNiIgeTE9Ii05LjQ4IiB4Mj0iMzIzIiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSI0MDYuNzUiIHkxPSItOS40OCIgeDI9IjMzMi4zOSIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iNDE2LjEzIiB5MT0iLTkuNDgiIHgyPSIzNDEuNzciIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjQyNS41MiIgeTE9Ii05LjQ4IiB4Mj0iMzUxLjE2IiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSI0MzQuOTEiIHkxPSItOS40OCIgeDI9IjM2MC41NSIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iNDQ0LjMiIHkxPSItOS40OCIgeDI9IjM2OS45NCIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iNDUzLjY4IiB5MT0iLTkuNDgiIHgyPSIzNzkuMzIiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjQ2My4wNyIgeTE9Ii05LjQ4IiB4Mj0iMzg4LjcxIiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSI0NzIuNDYiIHkxPSItOS40OCIgeDI9IjM5OC4xIiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSI0ODEuODUiIHkxPSItOS40OCIgeDI9IjQwNy40OSIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iNDkxLjIzIiB5MT0iLTkuNDgiIHgyPSI0MTYuODciIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjUwMC42MiIgeTE9Ii05LjQ4IiB4Mj0iNDI2LjI2IiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSI1MTAuMDEiIHkxPSItOS40OCIgeDI9IjQzNS42NSIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iNTE5LjQiIHkxPSItOS40OCIgeDI9IjQ0NS4wNCIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iNTI4Ljc5IiB5MT0iLTkuNDgiIHgyPSI0NTQuNDIiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjUzOC4xNyIgeTE9Ii05LjQ4IiB4Mj0iNDYzLjgxIiB5Mj0iNjQuODgiLz48L2c+PC9nPjwvc3ZnPg==);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #ea5514;
+}
+
+.section_branding_shops .shops_contents_text:hover::after {
+    border-color: #ea5514;
+}
+
+/*---------- 拠点紹介_モーダル ----------*/
+.shops_modal {
+    display: none;
+    width: 100vw;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+}
+
+.shops_modal.show {
+    display: block;
+}
+
+.shops_modal_contents {
+    position: fixed;
+    width: 87%;
+    background-image: url("https://yoshidaauto.co.jp/wp-content/themes/yoshida_auto_service/img/common/bg_paper01.png");
+    top: 30vw;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.shops_modal_closebtn {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ea5514;
+}
+
+.shops_modal_closebtn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    width: 50%;
+    height: 2px;
+    background-color: white;
+    margin: auto;
+}
+
+.shops_modal_closebtn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    width: 50%;
+    height: 2px;
+    background-color: white;
+    margin: auto;
+}
+
+.shops_modal_headline {
+    content: "";
+    width: 100%;
+    height: 10px;
+    background-color: #ea5514;
+}
+
+.shops_modal .list_inner {
+    display: none;
+    padding: 13% 5% 5% 5%;
+}
+
+.shops_modal .list_inner.show {
+    display: block;
+}
+
+.shops_modal .modal_header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.shops_modal .modal_title {
+    position: relative;
+    width: 60%;
+}
+
+.shops_modal .modal_title img {
+    width: 100%;
+}
+
+.shops_modal .modal_title::before {
+    content: attr(data-exp);
+    color: black;
+    display: inline-block;
+    width: auto;
+    font-size: 0.5em;
+    white-space: nowrap;
+    position: absolute;
+    top: -40%;
+}
+
+.shops_modal .modal_diagonal-line {
+    margin-left: 10px;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgNDY5IDUzIj48ZGVmcz48c3R5bGU+LmNscy0xLC5jbHMtM3tmaWxsOm5vbmU7fS5jbHMtMntjbGlwLXBhdGg6dXJsKCNjbGlwLXBhdGgpO30uY2xzLTN7c3Ryb2tlOiNlYTU1MTQ7c3Ryb2tlLW1pdGVybGltaXQ6MTA7c3Ryb2tlLXdpZHRoOjAuNzVweDt9PC9zdHlsZT48Y2xpcFBhdGggaWQ9ImNsaXAtcGF0aCI+PHJlY3QgY2xhc3M9ImNscy0xIiB4PSIwLjMxIiB5PSIwLjM2IiB3aWR0aD0iNDY4LjM5IiBoZWlnaHQ9IjUyLjI4Ii8+PC9jbGlwUGF0aD48L2RlZnM+PHRpdGxlPuOCouODvOODiOODnOODvOODiSA0NjwvdGl0bGU+PGcgaWQ9ImxldHRlciI+PHJlY3QgY2xhc3M9ImNscy0xIiB3aWR0aD0iNDY5IiBoZWlnaHQ9IjUzIi8+PGcgY2xhc3M9ImNscy0yIj48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSIzLjA4IiB5MT0iLTkuNDgiIHgyPSItNzEuMjgiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjEyLjQ3IiB5MT0iLTkuNDgiIHgyPSItNjEuODkiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjIxLjg2IiB5MT0iLTkuNDgiIHgyPSItNTIuNTEiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjMxLjI0IiB5MT0iLTkuNDgiIHgyPSItNDMuMTIiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjQwLjYzIiB5MT0iLTkuNDgiIHgyPSItMzMuNzMiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjUwLjAyIiB5MT0iLTkuNDgiIHgyPSItMjQuMzQiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjU5LjQxIiB5MT0iLTkuNDgiIHgyPSItMTQuOTUiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjY4Ljc5IiB5MT0iLTkuNDgiIHgyPSItNS41NyIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iNzguMTgiIHkxPSItOS40OCIgeDI9IjMuODIiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9Ijg3LjU3IiB5MT0iLTkuNDgiIHgyPSIxMy4yMSIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iOTYuOTYiIHkxPSItOS40OCIgeDI9IjIyLjYiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjEwNi4zNCIgeTE9Ii05LjQ4IiB4Mj0iMzEuOTgiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjExNS43MyIgeTE9Ii05LjQ4IiB4Mj0iNDEuMzciIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjEyNS4xMiIgeTE9Ii05LjQ4IiB4Mj0iNTAuNzYiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjEzNC41MSIgeTE9Ii05LjQ4IiB4Mj0iNjAuMTUiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjE0My44OSIgeTE9Ii05LjQ4IiB4Mj0iNjkuNTMiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjE1My4yOCIgeTE9Ii05LjQ4IiB4Mj0iNzguOTIiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjE2Mi42NyIgeTE9Ii05LjQ4IiB4Mj0iODguMzEiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjE3Mi4wNiIgeTE9Ii05LjQ4IiB4Mj0iOTcuNyIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iMTgxLjQ0IiB5MT0iLTkuNDgiIHgyPSIxMDcuMDgiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjE5MC44MyIgeTE9Ii05LjQ4IiB4Mj0iMTE2LjQ3IiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSIyMDAuMjIiIHkxPSItOS40OCIgeDI9IjEyNS44NiIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iMjA5LjYxIiB5MT0iLTkuNDgiIHgyPSIxMzUuMjUiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjIxOSIgeTE9Ii05LjQ4IiB4Mj0iMTQ0LjYzIiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSIyMjguMzgiIHkxPSItOS40OCIgeDI9IjE1NC4wMiIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iMjM3Ljc3IiB5MT0iLTkuNDgiIHgyPSIxNjMuNDEiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjI0Ny4xNiIgeTE9Ii05LjQ4IiB4Mj0iMTcyLjgiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjI1Ni41NSIgeTE9Ii05LjQ4IiB4Mj0iMTgyLjE4IiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSIyNjUuOTMiIHkxPSItOS40OCIgeDI9IjE5MS41NyIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iMjc1LjMyIiB5MT0iLTkuNDgiIHgyPSIyMDAuOTYiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjI4NC43MSIgeTE9Ii05LjQ4IiB4Mj0iMjEwLjM1IiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSIyOTQuMSIgeTE9Ii05LjQ4IiB4Mj0iMjE5LjczIiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSIzMDMuNDgiIHkxPSItOS40OCIgeDI9IjIyOS4xMiIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iMzEyLjg3IiB5MT0iLTkuNDgiIHgyPSIyMzguNTEiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjMyMi4yNiIgeTE9Ii05LjQ4IiB4Mj0iMjQ3LjkiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjMzMS42NSIgeTE9Ii05LjQ4IiB4Mj0iMjU3LjI4IiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSIzNDEuMDMiIHkxPSItOS40OCIgeDI9IjI2Ni42NyIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iMzUwLjQyIiB5MT0iLTkuNDgiIHgyPSIyNzYuMDYiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjM1OS44MSIgeTE9Ii05LjQ4IiB4Mj0iMjg1LjQ1IiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSIzNjkuMiIgeTE9Ii05LjQ4IiB4Mj0iMjk0Ljg0IiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSIzNzguNTgiIHkxPSItOS40OCIgeDI9IjMwNC4yMiIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iMzg3Ljk3IiB5MT0iLTkuNDgiIHgyPSIzMTMuNjEiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjM5Ny4zNiIgeTE9Ii05LjQ4IiB4Mj0iMzIzIiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSI0MDYuNzUiIHkxPSItOS40OCIgeDI9IjMzMi4zOSIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iNDE2LjEzIiB5MT0iLTkuNDgiIHgyPSIzNDEuNzciIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjQyNS41MiIgeTE9Ii05LjQ4IiB4Mj0iMzUxLjE2IiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSI0MzQuOTEiIHkxPSItOS40OCIgeDI9IjM2MC41NSIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iNDQ0LjMiIHkxPSItOS40OCIgeDI9IjM2OS45NCIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iNDUzLjY4IiB5MT0iLTkuNDgiIHgyPSIzNzkuMzIiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjQ2My4wNyIgeTE9Ii05LjQ4IiB4Mj0iMzg4LjcxIiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSI0NzIuNDYiIHkxPSItOS40OCIgeDI9IjM5OC4xIiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSI0ODEuODUiIHkxPSItOS40OCIgeDI9IjQwNy40OSIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iNDkxLjIzIiB5MT0iLTkuNDgiIHgyPSI0MTYuODciIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjUwMC42MiIgeTE9Ii05LjQ4IiB4Mj0iNDI2LjI2IiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSI1MTAuMDEiIHkxPSItOS40OCIgeDI9IjQzNS42NSIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iNTE5LjQiIHkxPSItOS40OCIgeDI9IjQ0NS4wNCIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iNTI4Ljc5IiB5MT0iLTkuNDgiIHgyPSI0NTQuNDIiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjUzOC4xNyIgeTE9Ii05LjQ4IiB4Mj0iNDYzLjgxIiB5Mj0iNjQuODgiLz48L2c+PC9nPjwvc3ZnPg==);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #ea5514;
+    width: 100%;
+    height: 7vw;
+}
+
+.shops_modal h4 {
+    font-size: 1.2em;
+    margin: 3px 0 5px;
+}
+
+.shops_modal p {
+    line-height: 1.6;
+}
+
+.shops_modal .modal_tel {
+    display: inline-block;
+    text-decoration: underline;
+}
+
+.shops_modal .modal_item-btn {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.shops_modal .modal_item-btn a {
+    position: relative;
+    display: inline-block;
+    padding: 1% 3%;
+    border: 1px solid black;
+    width: 37vw;
+    text-align: center;
+    overflow: hidden;
+}
+
+.shops_modal .modal_item-btn a::before {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-color: #ea5514;
+    position: absolute;
+    top: 0;
+    left: -100%;
+    -webkit-transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.shops_modal .modal_item-btn a:hover {
+    color: #fff;
+    border-color: #ea5514;
+    -webkit-transition: border 0.9s cubic-bezier(0.65, 0.05, 0.36, 1);
+    transition: border 0.9s cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+
+.shops_modal .modal_item-btn a:hover span::before {
+    border-color: #fff;
+}
+
+.shops_modal .modal_item-btn a:hover span::after {
+    border-color: #fff;
+}
+
+.shops_modal .modal_item-btn a:hover::before {
+    left: 0;
+}
+
+.shops_modal .modal_item-btn span {
+    display: inline-block;
+    position: relative;
+    font-size: 0.7em;
+    vertical-align: middle;
+}
+
+.shops_modal .modal_item-btn span::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 15px;
+    border-top: 1px solid black;
+    top: 45%;
+    right: -20px;
+}
+
+.shops_modal .modal_item-btn span::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    top: 0;
+    right: -28px;
+    bottom: 0;
+    margin: auto;
+}
+
+.shops_modal .modal_pictures {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 20px;
+}
+
+.shops_modal .modal_pictures li {
+    display: inline-block;
+    width: 23.5%;
+    margin: 5px;
+}
+
+.shops_modal .modal_pictures img {
+    width: 100%;
+    -webkit-filter: sepia(50%);
+    filter: sepia(50%);
+}
+
+.shops_modal_footline {
+    content: "";
+    width: 100%;
+    height: 5px;
+    background-color: #ea5514;
+}
+
+/*---------- 拠点紹介_マップモーダル ----------*/
+.map_modal {
+    display: none;
+    width: 100vw;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 4;
+}
+
+.map_modal.show {
+    display: block;
+}
+
+.map_modal_contents {
+    position: fixed;
+    width: 87%;
+    top: 50vw;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.map_modal_closebtn {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ea5514;
+}
+
+.map_modal_closebtn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    width: 50%;
+    height: 2px;
+    background-color: white;
+    margin: auto;
+}
+
+.map_modal_closebtn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    width: 50%;
+    height: 2px;
+    background-color: white;
+    margin: auto;
+}
+
+/*---------- 拠点紹介_風景モーダル ----------*/
+.scene_modal {
+    display: none;
+    width: 100vw;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 4;
+}
+
+.scene_modal.show {
+    display: block;
+}
+
+.scene_modal_contents {
+    position: fixed;
+    width: 87%;
+    top: 50vw;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.scene_modal_closebtn {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ea5514;
+}
+
+.scene_modal_closebtn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    width: 50%;
+    height: 2px;
+    background-color: white;
+    margin: auto;
+}
+
+.scene_modal_closebtn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    width: 50%;
+    height: 2px;
+    background-color: white;
+    margin: auto;
+}
+
+/*---------- 拠点紹介_写真モーダル ----------*/
+.pictures_modal {
+    display: none;
+    width: 100vw;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 4;
+}
+
+.pictures_modal.show {
+    display: block;
+}
+
+.pictures_modal_contents {
+    position: fixed;
+    width: 80%;
+    top: 80vw;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.pictures_modal_closebtn {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ea5514;
+}
+
+.pictures_modal_closebtn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    width: 50%;
+    height: 2px;
+    background-color: white;
+    margin: auto;
+}
+
+.pictures_modal_closebtn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    width: 50%;
+    height: 2px;
+    background-color: white;
+    margin: auto;
+}
+
+.pictures_modal .slide_contents_item {
+    display: block;
+}
+
+.pictures_modal .slide_contents_item img {
+    width: 100%;
+}
+
+.pictures_modal .slide-arrow {
+    width: 25px;
+}
+
+.pictures_modal .prev-arrow {
+    position: absolute;
+    top: 40%;
+    left: -30px;
+}
+
+.pictures_modal .next-arrow {
+    position: absolute;
+    top: 40%;
+    right: -30px;
+}
+
+.pictures_modal .slick-disabled {
+    display: none;
+}
+
+/*---------- 拠点紹介_大阪背景 ----------*/
+.section_branding_shops .osaka {
+    position: relative;
+    z-index: -1;
+}
+
+.section_branding_shops .osaka_picture {
+    position: absolute;
+    top: -750px;
+    width: 90%;
+}
+
+.section_branding_shops .osaka_picture img {
+    width: 100%;
+}
+
+.section_branding_shops .osaka_ripple {
+    position: absolute;
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+    background: rgba(234, 85, 20, 0.4);
+}
+
+.section_branding_shops .ripple1 {
+    top: -530px;
+    left: 170px;
+}
+
+.section_branding_shops .ripple2 {
+    top: -470px;
+    left: 190px;
+}
+
+.section_branding_shops .ripple3 {
+    top: -410px;
+    left: 220px;
+}
+
+.section_branding_shops .ripple4 {
+    top: -370px;
+    left: 170px;
+}
+
+.section_branding_shops .ring {
+    background: rgba(234, 85, 20, 0.2);
+    position: absolute;
+    border-radius: 100px;
+    height: 20px;
+    width: 20px;
+    top: 5px;
+    left: 5px;
+    -webkit-animation: pulsate 2.5s ease-out;
+    animation: pulsate 2.5s ease-out;
+    /* スピードなど */
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}
+
+@keyframes pulsate {
+    0% {
+        -webkit-transform: scale(1, 1);
+        transform: scale(1, 1);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: scale(4, 4);
+        transform: scale(4, 4);
+        opacity: 0;
+    }
+}
+
+/*-------------------------------
+
+	企業情報ページ
+
+-------------------------------*/
+.section_recruit .contentsLogo-recruit01 {
+    position: absolute;
+    top: -8px;
+    left: 0;
+    width: 80%;
+}
+
+.section_recruit .contentsLogo-recruit01 img {
+    width: 100%;
+}
+
+.section_recruit .backbtn {
+    margin: 0 7vw;
+    padding-bottom: 100px;
+}
+
+.section_recruit .contentsLogo-recruit02 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 80%;
+}
+
+.section_recruit .contentsLogo-recruit02 img {
+    width: 100%;
+    display: block;
+}
+
+/*---------- 仕事内容 ----------*/
+.section_recruit_recruit {
+    margin-top: 100px;
+    padding: 0 7vw;
+}
+
+.section_recruit_recruit .navList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 50px 0 40px;
+}
+
+.section_recruit_recruit .navList li {
+    width: 32%;
+    margin-bottom: 10px;
+}
+
+.section_recruit_recruit .navList img {
+    width: 100%;
+}
+
+.section_recruit_recruit .nav-title img {
+    width: 100%;
+    height: 65px;
+    object-fit: cover;
+    object-position: 100% 50%;
+}
+
+.section_recruit_recruit-department {
+    margin-bottom: 60px;
+}
+
+.section_recruit_recruit .member_comments {
+    font-size: 3.5vw;
+}
+
+.section_recruit_recruit .member_comments dt {
+    position: relative;
+    padding: 20px 0 20px 10px;
+    background-color: #ea5514;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.section_recruit_recruit .member_comments dt::before {
+    position: absolute;
+    top: 0;
+    left: 5px;
+    content: "";
+    width: 2px;
+    height: 100%;
+    background-color: white;
+}
+
+.section_recruit_recruit .member_comments dd {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition-duration: 0.5s;
+}
+
+.section_recruit_recruit .member_comments dd.show {
+    line-height: normal; /* numberに書き換える*/
+    max-height: 333px;
+    opacity: 1;
+    margin-bottom: 20px;
+}
+
+.section_recruit_recruit .department_members {
+    position: relative;
+    height: 300px;
+}
+
+.section_recruit_recruit .member {
+    position: absolute;
+    -webkit-filter: sepia(50%);
+    filter: sepia(50%);
+}
+
+.section_recruit_recruit_eigyo .menber-1 {
+    width: 45vw;
+    top: 90px;
+}
+
+.section_recruit_recruit_eigyo .menber-2 {
+    width: 55vw;
+    top: 10px;
+    right: 0;
+}
+
+.section_recruit_recruit_eigyo .menber-3 {
+    width: 35vw;
+    top: 170px;
+    right: 20px;
+}
+
+.section_recruit_recruit_seibisi .menber-1 {
+    width: 30vw;
+    top: 30px;
+    right: 0;
+}
+
+.section_recruit_recruit_seibisi .menber-2 {
+    width: 50vw;
+    top: 10px;
+}
+
+.section_recruit_recruit_seibisi .menber-3 {
+    width: 40vw;
+    top: 150px;
+    right: 30px;
+}
+
+.section_recruit_recruit_front .menber-1 {
+    width: 33vw;
+    top: 50px;
+}
+
+.section_recruit_recruit_front .menber-2 {
+    width: 50vw;
+    top: 10px;
+    right: 0;
+}
+
+.section_recruit_recruit_front .menber-3 {
+    width: 40vw;
+    top: 150px;
+    left: 50px;
+}
+
+.section_recruit_recruit_customer .menber-1 {
+    width: 50vw;
+    top: 10px;
+}
+
+.section_recruit_recruit_customer .menber-2 {
+    width: 30vw;
+    top: 30px;
+    right: 0;
+}
+
+.section_recruit_recruit_customer .menber-3 {
+    width: 45vw;
+    top: 130px;
+    right: 0;
+}
+
+.section_recruit_recruit_kanri .menber-1 {
+    width: 30vw;
+    top: 50px;
+}
+
+.section_recruit_recruit_kanri .menber-2 {
+    width: 50vw;
+    top: 10px;
+    right: 0;
+}
+
+.section_recruit_recruit_kanri .menber-3 {
+    width: 40vw;
+    top: 140px;
+    left: 40px;
+}
+
+.section_recruit_recruit_hoken .menber-1 {
+    width: 60vw;
+    top: 10px;
+}
+
+.section_recruit_recruit_hoken .menber-2 {
+    width: 40vw;
+    top: 140px;
+    right: 0;
+}
+
+/*---------- 働き方 ----------*/
+.section_recruit_working {
+    padding: 0 7vw;
+}
+
+.section_recruit_working .working_movie {
+    position: relative;
+    margin: 40px 0 60px;
+}
+
+.section_recruit_working iframe {
+    width: 100%;
+    height: 160px;
+}
+
+.section_recruit_working .frame-TL {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    top: -7px;
+    left: -7px;
+    border-top: 1px solid #ea5514;
+    border-left: 1px solid #ea5514;
+}
+
+.section_recruit_working .frame-TR {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    top: -7px;
+    right: -7px;
+    border-top: 1px solid #ea5514;
+    border-right: 1px solid #ea5514;
+}
+
+.section_recruit_working .frame-BL {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    bottom: -7px;
+    left: -7px;
+    border-bottom: 1px solid #ea5514;
+    border-left: 1px solid #ea5514;
+}
+
+.section_recruit_working .frame-BR {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    bottom: -7px;
+    right: -7px;
+    border-bottom: 1px solid #ea5514;
+    border-right: 1px solid #ea5514;
+}
+
+/*---------- 採用情報 ----------*/
+.section_recruit_careers {
+    padding: 0 7vw;
+}
+
+.section_recruit_careers .careers_list {
+    border: 1px dotted black;
+    font-size: 13px;
+    margin: 30px 0 60px;
+}
+
+.section_recruit_careers .careers_list dt {
+    padding: 2vw 5vw;
+    background-color: #ea5514;
+    color: white;
+}
+
+.section_recruit_careers .careers_list dt:nth-of-type(2n) {
+    background-color: #ed7133;
+}
+
+.section_recruit_careers .careers_list dd {
+    padding: 2vw 5vw;
+}
+
+/*---------- 採用情報 ----------*/
+.section_recruit_entry {
+    padding: 0 7vw;
+    margin-bottom: 60px;
+}
+
+.section_recruit_entry .entry_text {
+    font-size: 3.5vw;
+}
+
+.section_recruit_entry .entry_phone {
+    font-size: 13px;
+}
+
+.section_recruit_entry .entry_phone a {
+    display: inline;
+    color: #ea5514;
+}
+
+.section_recruit_entry .entry_mynabi {
+    width: 80%;
+    margin: 40px auto 0;
+}
+
+.section_recruit_entry .entry_mynabi img {
+    width: 100%;
+}
+
+/*---------- エントリーボタン ----------*/
+.entry-btn {
+    position: fixed;
+    top: 30vh;
+    right: -30px;
+    width: 110px;
+    height: 60px;
+    background-color: #ea5514;
+    border-radius: 30px;
+    z-index: 5;
+}
+
+.entry-btn p {
+    position: absolute;
+    top: 12px;
+    left: 16px;
+    color: white;
+}
+
+.entry-btn p::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 20px;
+    border-top: 1.5px solid white;
+    top: 30px;
+    left: 15px;
+}
+
+.entry-btn p::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    border-right: 1.5px solid white;
+    border-bottom: 1.5px solid white;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    top: 26px;
+    left: 33px;
+}
+
+.entry-btn span {
+    background: rgba(234, 85, 20, 0.2);
+    position: absolute;
+    border-radius: 30px;
+    width: 110px;
+    height: 60px;
+    top: 0px;
+    left: 0px;
+    animation: pulsate 1s ease-out;
+    animation-iteration-count: infinite;
+}
+
+@keyframes pulsate {
+    0% {
+        -webkit-transform: scale(1.1, 1.1);
+        transform: scale(1.1, 1.1);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: scale(1.5, 1.7);
+        transform: scale(1.5, 1.7);
+        opacity: 0;
+    }
+}
+
+/*-------------------------------
+
+	お問い合わせページ
+
+-------------------------------*/
+.section_contact_contact {
+    padding: 0 7vw;
+}
+
+.section_contact_contact .title {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 100px 0 50px;
+}
+
+.section_contact_contact .title h3 {
+    width: 100%;
+    font-size: 30px;
+    color: #ea5514;
+}
+
+.section_contact_contact .title .diagonal-line {
+    position: relative;
+    margin-top: 10px;
+    margin-left: 10px;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgNDY5IDUzIj48ZGVmcz48c3R5bGU+LmNscy0xLC5jbHMtM3tmaWxsOm5vbmU7fS5jbHMtMntjbGlwLXBhdGg6dXJsKCNjbGlwLXBhdGgpO30uY2xzLTN7c3Ryb2tlOiNlYTU1MTQ7c3Ryb2tlLW1pdGVybGltaXQ6MTA7c3Ryb2tlLXdpZHRoOjAuNzVweDt9PC9zdHlsZT48Y2xpcFBhdGggaWQ9ImNsaXAtcGF0aCI+PHJlY3QgY2xhc3M9ImNscy0xIiB4PSIwLjMxIiB5PSIwLjM2IiB3aWR0aD0iNDY4LjM5IiBoZWlnaHQ9IjUyLjI4Ii8+PC9jbGlwUGF0aD48L2RlZnM+PHRpdGxlPuOCouODvOODiOODnOODvOODiSA0NjwvdGl0bGU+PGcgaWQ9ImxldHRlciI+PHJlY3QgY2xhc3M9ImNscy0xIiB3aWR0aD0iNDY5IiBoZWlnaHQ9IjUzIi8+PGcgY2xhc3M9ImNscy0yIj48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSIzLjA4IiB5MT0iLTkuNDgiIHgyPSItNzEuMjgiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjEyLjQ3IiB5MT0iLTkuNDgiIHgyPSItNjEuODkiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjIxLjg2IiB5MT0iLTkuNDgiIHgyPSItNTIuNTEiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjMxLjI0IiB5MT0iLTkuNDgiIHgyPSItNDMuMTIiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjQwLjYzIiB5MT0iLTkuNDgiIHgyPSItMzMuNzMiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjUwLjAyIiB5MT0iLTkuNDgiIHgyPSItMjQuMzQiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjU5LjQxIiB5MT0iLTkuNDgiIHgyPSItMTQuOTUiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjY4Ljc5IiB5MT0iLTkuNDgiIHgyPSItNS41NyIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iNzguMTgiIHkxPSItOS40OCIgeDI9IjMuODIiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9Ijg3LjU3IiB5MT0iLTkuNDgiIHgyPSIxMy4yMSIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iOTYuOTYiIHkxPSItOS40OCIgeDI9IjIyLjYiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjEwNi4zNCIgeTE9Ii05LjQ4IiB4Mj0iMzEuOTgiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjExNS43MyIgeTE9Ii05LjQ4IiB4Mj0iNDEuMzciIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjEyNS4xMiIgeTE9Ii05LjQ4IiB4Mj0iNTAuNzYiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjEzNC41MSIgeTE9Ii05LjQ4IiB4Mj0iNjAuMTUiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjE0My44OSIgeTE9Ii05LjQ4IiB4Mj0iNjkuNTMiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjE1My4yOCIgeTE9Ii05LjQ4IiB4Mj0iNzguOTIiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjE2Mi42NyIgeTE9Ii05LjQ4IiB4Mj0iODguMzEiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjE3Mi4wNiIgeTE9Ii05LjQ4IiB4Mj0iOTcuNyIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iMTgxLjQ0IiB5MT0iLTkuNDgiIHgyPSIxMDcuMDgiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjE5MC44MyIgeTE9Ii05LjQ4IiB4Mj0iMTE2LjQ3IiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSIyMDAuMjIiIHkxPSItOS40OCIgeDI9IjEyNS44NiIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iMjA5LjYxIiB5MT0iLTkuNDgiIHgyPSIxMzUuMjUiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjIxOSIgeTE9Ii05LjQ4IiB4Mj0iMTQ0LjYzIiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSIyMjguMzgiIHkxPSItOS40OCIgeDI9IjE1NC4wMiIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iMjM3Ljc3IiB5MT0iLTkuNDgiIHgyPSIxNjMuNDEiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjI0Ny4xNiIgeTE9Ii05LjQ4IiB4Mj0iMTcyLjgiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjI1Ni41NSIgeTE9Ii05LjQ4IiB4Mj0iMTgyLjE4IiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSIyNjUuOTMiIHkxPSItOS40OCIgeDI9IjE5MS41NyIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iMjc1LjMyIiB5MT0iLTkuNDgiIHgyPSIyMDAuOTYiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjI4NC43MSIgeTE9Ii05LjQ4IiB4Mj0iMjEwLjM1IiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSIyOTQuMSIgeTE9Ii05LjQ4IiB4Mj0iMjE5LjczIiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSIzMDMuNDgiIHkxPSItOS40OCIgeDI9IjIyOS4xMiIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iMzEyLjg3IiB5MT0iLTkuNDgiIHgyPSIyMzguNTEiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjMyMi4yNiIgeTE9Ii05LjQ4IiB4Mj0iMjQ3LjkiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjMzMS42NSIgeTE9Ii05LjQ4IiB4Mj0iMjU3LjI4IiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSIzNDEuMDMiIHkxPSItOS40OCIgeDI9IjI2Ni42NyIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iMzUwLjQyIiB5MT0iLTkuNDgiIHgyPSIyNzYuMDYiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjM1OS44MSIgeTE9Ii05LjQ4IiB4Mj0iMjg1LjQ1IiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSIzNjkuMiIgeTE9Ii05LjQ4IiB4Mj0iMjk0Ljg0IiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSIzNzguNTgiIHkxPSItOS40OCIgeDI9IjMwNC4yMiIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iMzg3Ljk3IiB5MT0iLTkuNDgiIHgyPSIzMTMuNjEiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjM5Ny4zNiIgeTE9Ii05LjQ4IiB4Mj0iMzIzIiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSI0MDYuNzUiIHkxPSItOS40OCIgeDI9IjMzMi4zOSIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iNDE2LjEzIiB5MT0iLTkuNDgiIHgyPSIzNDEuNzciIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjQyNS41MiIgeTE9Ii05LjQ4IiB4Mj0iMzUxLjE2IiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSI0MzQuOTEiIHkxPSItOS40OCIgeDI9IjM2MC41NSIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iNDQ0LjMiIHkxPSItOS40OCIgeDI9IjM2OS45NCIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iNDUzLjY4IiB5MT0iLTkuNDgiIHgyPSIzNzkuMzIiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjQ2My4wNyIgeTE9Ii05LjQ4IiB4Mj0iMzg4LjcxIiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSI0NzIuNDYiIHkxPSItOS40OCIgeDI9IjM5OC4xIiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSI0ODEuODUiIHkxPSItOS40OCIgeDI9IjQwNy40OSIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iNDkxLjIzIiB5MT0iLTkuNDgiIHgyPSI0MTYuODciIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjUwMC42MiIgeTE9Ii05LjQ4IiB4Mj0iNDI2LjI2IiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSI1MTAuMDEiIHkxPSItOS40OCIgeDI9IjQzNS42NSIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iNTE5LjQiIHkxPSItOS40OCIgeDI9IjQ0NS4wNCIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iNTI4Ljc5IiB5MT0iLTkuNDgiIHgyPSI0NTQuNDIiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjUzOC4xNyIgeTE9Ii05LjQ4IiB4Mj0iNDYzLjgxIiB5Mj0iNjQuODgiLz48L2c+PC9nPjwvc3ZnPg==);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #ea5514;
+    width: 100%;
+    height: 7vw;
+}
+
+.section_contact_contact .title span {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    font-size: 12px;
+}
+
+.section_contact_contact .contact:nth-of-type(2) {
+    padding-bottom: 30px;
+    border-bottom: 1px dotted rgba(0, 0, 0, 0.555);
+}
+
+.section_contact_contact .contact:nth-of-type(3) {
+    margin-top: 30px;
+}
+
+.section_contact_contact .nextbtn a {
+    width: 100%;
+    padding: 5px 0px;
+    text-align: center;
+}
+
+.section_contact .backbtn {
+    margin: 80px 7vw 0;
+    padding-bottom: 140px;
+}
+
+.section_contact .contentsLogo {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 80%;
+}
+
+.section_contact .contentsLogo img {
+    width: 100%;
+    display: block;
+}
+
+/*-------------------------------
+
+	フォームページ
+
+-------------------------------*/
+.section_contact_form {
+    padding: 0 7vw;
+}
+
+.section_contact_form .title {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 100px 0 50px;
+}
+
+.section_contact_form .title h3 {
+    width: 100%;
+    font-size: 30px;
+    color: #ea5514;
+}
+
+.section_contact_form .title .diagonal-line {
+    position: relative;
+    margin-top: 10px;
+    margin-left: 10px;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgNDY5IDUzIj48ZGVmcz48c3R5bGU+LmNscy0xLC5jbHMtM3tmaWxsOm5vbmU7fS5jbHMtMntjbGlwLXBhdGg6dXJsKCNjbGlwLXBhdGgpO30uY2xzLTN7c3Ryb2tlOiNlYTU1MTQ7c3Ryb2tlLW1pdGVybGltaXQ6MTA7c3Ryb2tlLXdpZHRoOjAuNzVweDt9PC9zdHlsZT48Y2xpcFBhdGggaWQ9ImNsaXAtcGF0aCI+PHJlY3QgY2xhc3M9ImNscy0xIiB4PSIwLjMxIiB5PSIwLjM2IiB3aWR0aD0iNDY4LjM5IiBoZWlnaHQ9IjUyLjI4Ii8+PC9jbGlwUGF0aD48L2RlZnM+PHRpdGxlPuOCouODvOODiOODnOODvOODiSA0NjwvdGl0bGU+PGcgaWQ9ImxldHRlciI+PHJlY3QgY2xhc3M9ImNscy0xIiB3aWR0aD0iNDY5IiBoZWlnaHQ9IjUzIi8+PGcgY2xhc3M9ImNscy0yIj48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSIzLjA4IiB5MT0iLTkuNDgiIHgyPSItNzEuMjgiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjEyLjQ3IiB5MT0iLTkuNDgiIHgyPSItNjEuODkiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjIxLjg2IiB5MT0iLTkuNDgiIHgyPSItNTIuNTEiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjMxLjI0IiB5MT0iLTkuNDgiIHgyPSItNDMuMTIiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjQwLjYzIiB5MT0iLTkuNDgiIHgyPSItMzMuNzMiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjUwLjAyIiB5MT0iLTkuNDgiIHgyPSItMjQuMzQiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjU5LjQxIiB5MT0iLTkuNDgiIHgyPSItMTQuOTUiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjY4Ljc5IiB5MT0iLTkuNDgiIHgyPSItNS41NyIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iNzguMTgiIHkxPSItOS40OCIgeDI9IjMuODIiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9Ijg3LjU3IiB5MT0iLTkuNDgiIHgyPSIxMy4yMSIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iOTYuOTYiIHkxPSItOS40OCIgeDI9IjIyLjYiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjEwNi4zNCIgeTE9Ii05LjQ4IiB4Mj0iMzEuOTgiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjExNS43MyIgeTE9Ii05LjQ4IiB4Mj0iNDEuMzciIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjEyNS4xMiIgeTE9Ii05LjQ4IiB4Mj0iNTAuNzYiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjEzNC41MSIgeTE9Ii05LjQ4IiB4Mj0iNjAuMTUiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjE0My44OSIgeTE9Ii05LjQ4IiB4Mj0iNjkuNTMiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjE1My4yOCIgeTE9Ii05LjQ4IiB4Mj0iNzguOTIiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjE2Mi42NyIgeTE9Ii05LjQ4IiB4Mj0iODguMzEiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjE3Mi4wNiIgeTE9Ii05LjQ4IiB4Mj0iOTcuNyIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iMTgxLjQ0IiB5MT0iLTkuNDgiIHgyPSIxMDcuMDgiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjE5MC44MyIgeTE9Ii05LjQ4IiB4Mj0iMTE2LjQ3IiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSIyMDAuMjIiIHkxPSItOS40OCIgeDI9IjEyNS44NiIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iMjA5LjYxIiB5MT0iLTkuNDgiIHgyPSIxMzUuMjUiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjIxOSIgeTE9Ii05LjQ4IiB4Mj0iMTQ0LjYzIiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSIyMjguMzgiIHkxPSItOS40OCIgeDI9IjE1NC4wMiIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iMjM3Ljc3IiB5MT0iLTkuNDgiIHgyPSIxNjMuNDEiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjI0Ny4xNiIgeTE9Ii05LjQ4IiB4Mj0iMTcyLjgiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjI1Ni41NSIgeTE9Ii05LjQ4IiB4Mj0iMTgyLjE4IiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSIyNjUuOTMiIHkxPSItOS40OCIgeDI9IjE5MS41NyIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iMjc1LjMyIiB5MT0iLTkuNDgiIHgyPSIyMDAuOTYiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjI4NC43MSIgeTE9Ii05LjQ4IiB4Mj0iMjEwLjM1IiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSIyOTQuMSIgeTE9Ii05LjQ4IiB4Mj0iMjE5LjczIiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSIzMDMuNDgiIHkxPSItOS40OCIgeDI9IjIyOS4xMiIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iMzEyLjg3IiB5MT0iLTkuNDgiIHgyPSIyMzguNTEiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjMyMi4yNiIgeTE9Ii05LjQ4IiB4Mj0iMjQ3LjkiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjMzMS42NSIgeTE9Ii05LjQ4IiB4Mj0iMjU3LjI4IiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSIzNDEuMDMiIHkxPSItOS40OCIgeDI9IjI2Ni42NyIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iMzUwLjQyIiB5MT0iLTkuNDgiIHgyPSIyNzYuMDYiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjM1OS44MSIgeTE9Ii05LjQ4IiB4Mj0iMjg1LjQ1IiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSIzNjkuMiIgeTE9Ii05LjQ4IiB4Mj0iMjk0Ljg0IiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSIzNzguNTgiIHkxPSItOS40OCIgeDI9IjMwNC4yMiIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iMzg3Ljk3IiB5MT0iLTkuNDgiIHgyPSIzMTMuNjEiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjM5Ny4zNiIgeTE9Ii05LjQ4IiB4Mj0iMzIzIiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSI0MDYuNzUiIHkxPSItOS40OCIgeDI9IjMzMi4zOSIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iNDE2LjEzIiB5MT0iLTkuNDgiIHgyPSIzNDEuNzciIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjQyNS41MiIgeTE9Ii05LjQ4IiB4Mj0iMzUxLjE2IiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSI0MzQuOTEiIHkxPSItOS40OCIgeDI9IjM2MC41NSIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iNDQ0LjMiIHkxPSItOS40OCIgeDI9IjM2OS45NCIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iNDUzLjY4IiB5MT0iLTkuNDgiIHgyPSIzNzkuMzIiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjQ2My4wNyIgeTE9Ii05LjQ4IiB4Mj0iMzg4LjcxIiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSI0NzIuNDYiIHkxPSItOS40OCIgeDI9IjM5OC4xIiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSI0ODEuODUiIHkxPSItOS40OCIgeDI9IjQwNy40OSIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iNDkxLjIzIiB5MT0iLTkuNDgiIHgyPSI0MTYuODciIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjUwMC42MiIgeTE9Ii05LjQ4IiB4Mj0iNDI2LjI2IiB5Mj0iNjQuODgiLz48bGluZSBjbGFzcz0iY2xzLTMiIHgxPSI1MTAuMDEiIHkxPSItOS40OCIgeDI9IjQzNS42NSIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iNTE5LjQiIHkxPSItOS40OCIgeDI9IjQ0NS4wNCIgeTI9IjY0Ljg4Ii8+PGxpbmUgY2xhc3M9ImNscy0zIiB4MT0iNTI4Ljc5IiB5MT0iLTkuNDgiIHgyPSI0NTQuNDIiIHkyPSI2NC44OCIvPjxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjUzOC4xNyIgeTE9Ii05LjQ4IiB4Mj0iNDYzLjgxIiB5Mj0iNjQuODgiLz48L2c+PC9nPjwvc3ZnPg==);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #ea5514;
+    width: 100%;
+    height: 7vw;
+}
+
+.section_contact_form .title span {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    font-size: 12px;
+}
+
+.section_contact_form .main_text {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.section_contact_form .main_contact {
+    border-top: 1px dotted black;
+    padding-top: 20px;
+    margin-bottom: 15px;
+}
+
+.section_contact_form .main_contact label {
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.section_contact_form .main_contact span {
+    color: #ea5514;
+}
+
+.section_contact_form .main_contact input {
+    width: 100%;
+    height: 38px;
+    font-size: 14px;
+    /* padding: 0 10px; */
+}
+
+.section_contact_form .contact_post .post_research {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: baseline;
+}
+
+.section_contact_form .contact_post input {
+    width: 50%;
+}
+
+.section_contact_form .contact_post p {
+    margin-top: 4px;
+    margin-left: 20px;
+    background-color: #ea5514;
+    height: 100%;
+}
+
+.section_contact_form .contact_post a {
+    font-size: 14px;
+    color: white;
+    padding: 5px 3px;
+}
+
+.section_contact_form .contact_reply .checkboxes {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.section_contact_form .contact_reply .chkbox {
+    width: 100px;
+}
+
+.section_contact_form .contact_reply .chkbox input[type="checkbox"] {
+    display: none;
+}
+
+.section_contact_form .contact_reply .chkbox label {
+    padding-left: 30px;
+    font-size: 16px;
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+}
+
+.section_contact_form .contact_reply .chkbox label::before {
+    content: "";
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    position: absolute;
+    top: 2.5px;
+    left: 0;
+    background-color: #f8ebd8;
+    border: 1px solid #ea5514;
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+}
+
+.section_contact_form .contact_reply .chkbox input[type="checkbox"]:checked + label::before {
+    background-color: #ea5514;
+}
+
+.section_contact_form .contact_reply .select-hour {
+    margin-top: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: baseline;
+}
+
+.section_contact_form .contact_reply .select-hour_text {
+    margin-right: 15px;
+}
+
+.section_contact_form .contact_reply .select-hour select {
+    width: 70px;
+    height: 29px;
+    padding: 5px 0 5px 3px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    background-color: #ea5514;
+    font-size: 16px;
+}
+
+.section_contact_form .contact_reply .select-hour_tilde {
+    padding: 0 10px;
+}
+
+.section_contact_form .contact_reply .select-hour option {
+    width: 13px;
+    height: 13px;
+}
+
+.section_contact_form .contact-phone span,
+.section_contact_form .contact-mobile span,
+.section_contact_form .contact-fax span {
+    display: none;
+}
+
+.section_contact_form .contact-phone span.show,
+.section_contact_form .contact-mobile span.show,
+.section_contact_form .contact-fax span.show {
+    display: inline;
+}
+
+.section_contact_form .contact-content textarea {
+    width: 100%;
+    height: 40vw;
+    resize: none;
+}
+
+.section_contact_form .privacy {
+    /* padding: 0 40px; */
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.section_contact_form .privacy a {
+    display: inline;
+    color: #ea5514;
+    text-decoration: underline;
+}
+
+.section_contact_form .privacy input[type="checkbox"] {
+    display: none;
+}
+
+.section_contact_form .privacy label {
+    padding-left: 35px;
+    display: inline-block;
+    position: relative;
+}
+
+.section_contact_form .privacy label::before {
+    content: "";
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    position: absolute;
+    top: 2.5px;
+    left: 0;
+    background-color: #f8ebd8;
+    border: 1px solid #ea5514;
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+}
+
+.section_contact_form .privacy input[type="checkbox"]:checked + label::before {
+    background-color: #ea5514;
+}
+
+.section_contact_form .privacy_text {
+    font-size: 3.5vw;
+}
+
+.section_contact_form .confirmation_btn {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+
+.section_contact_form .confirmation_btn a {
+    width: 100%;
+    position: relative;
+    padding: 5px 0;
+    display: inline-block;
+    border: 1px solid #000;
+    overflow: hidden;
+}
+
+.section_contact_form .confirmation_btn a::before {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-color: #ea5514;
+    position: absolute;
+    top: 0;
+    left: -100%;
+    -webkit-transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.section_contact_form .confirmation_btn a:hover {
+    color: #fff;
+    border-color: #ea5514;
+    -webkit-transition: border 0.9s cubic-bezier(0.65, 0.05, 0.36, 1);
+    transition: border 0.9s cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+
+.section_contact_form .confirmation_btn a:hover span {
+    -webkit-transform: translate(6px);
+    transform: translate(6px);
+}
+
+.section_contact_form .confirmation_btn a:hover span::before {
+    border-color: #fff;
+}
+
+.section_contact_form .confirmation_btn a:hover span::after {
+    border-color: #fff;
+}
+
+.section_contact_form .confirmation_btn a:hover::before {
+    left: 0;
+}
+
+.section_contact_form .confirmation_btn span {
+    display: inline-block;
+    padding-right: 40px;
+    position: relative;
+    vertical-align: baseline;
+    font-size: 15px;
+    -webkit-transition: all 0.4s linear;
+    transition: all 0.4s linear;
+}
+
+.section_contact_form .confirmation_btn span::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    width: 15px;
+    border-top: 1px solid #000;
+    top: 50%;
+    right: 10px;
+}
+
+.section_contact_form .confirmation_btn span::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    width: 7px;
+    height: 7px;
+    border-bottom: 1px solid #000;
+    border-right: 1px solid #000;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.section_opinion .backbtn {
+    margin: 60px 7vw 0;
+    padding-bottom: 140px;
+}
+
+.section_opinion .contentsLogo {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 80%;
+}
+
+.section_opinion .contentsLogo img {
+    width: 100%;
+    display: block;
+}
+
+/*-------------------------------
+
+	プライバシーポリシー
+
+-------------------------------*/
+.section-privacy {
+    padding: 0 5vw;
+    margin-bottom: 100px;
+}
+
+.section-privacy h3 {
+    margin: 80px 0 30px;
+    font-size: 30px;
+}
+
+.section-privacy dt {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.section-privacy dd {
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+/*-------------------------------
+
+	slick.js
+
+-------------------------------*/
+.slick-prev:before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background-size: contain;
+    background-image: url("../img/branding//arrow_prev.png");
+    opacity: 1;
+}
+
+.slick-next:before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background-size: contain;
+    background-image: url("../img/branding//arrow_next.png");
+    opacity: 1;
+}
+
+.slick-disabled {
+    opacity: 0;
+}
